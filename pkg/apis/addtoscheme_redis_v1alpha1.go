@@ -1,7 +1,7 @@
 package apis
 
 import (
-	"go/redis-operator/redis-operator/pkg/apis/redis/v1alpha1"
+	"github.com/iamabhishek-dubey/redis-operator/pkg/apis/k8s/v1alpha1"
 )
 
 func init() {

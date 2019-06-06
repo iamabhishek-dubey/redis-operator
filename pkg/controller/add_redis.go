@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"go/redis-operator/redis-operator/pkg/controller/redis"
+	"github.com/iamabhishek-dubey/redis-operator/pkg/controller/redis"
 )
 
 func init() {
