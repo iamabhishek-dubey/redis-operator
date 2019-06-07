@@ -1,9 +1,15 @@
+---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+kind: ClusterRole
 metadata:
-  creationTimestamp: null
   name: redis-operator
 rules:
+- apiGroups:
+  - redis.opstree.com
+  resources:
+  - '*'
+  verbs:
+  - '*'
 - apiGroups:
   - ""
   resources:
@@ -19,12 +25,29 @@ rules:
 - apiGroups:
   - apps
   resources:
-  - deployments
-  - daemonsets
-  - replicasets
   - statefulsets
+  - replicasets
   verbs:
   - '*'
+- apiGroups:
+  - policy
+  resources:
+  - poddisruptionbudgets
+  verbs:
+  - '*'
+- apiGroups:
+  - ""
+  resources:
+  - namespaces
+  verbs:
+  - get
+- apiGroups:
+  - apps
+  resources:
+  - replicasets
+  - deployments
+  verbs:
+  - 'get'
 - apiGroups:
   - monitoring.coreos.com
   resources:
@@ -40,9 +63,3 @@ rules:
   - deployments/finalizers
   verbs:
   - update
-- apiGroups:
-  - redis.opstree.com
-  resources:
-  - '*'
-  verbs:
-  - '*'
