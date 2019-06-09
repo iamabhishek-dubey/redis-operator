@@ -3,6 +3,22 @@ kind: CustomResourceDefinition
 metadata:
   name: redis.redis.opstree.com
 spec:
+  additionalPrinterColumns:
+  - JSONPath: .status.master
+    description: Current master's Pod name
+    name: Master
+    type: string
+  - JSONPath: .status.replicas
+    description: Current number of Redis instances
+    name: Replicas
+    type: integer
+  - JSONPath: .spec.replicas
+    description: Desired number of Redis instances
+    name: Desired
+    type: integer
+  - JSONPath: .metadata.creationTimestamp
+    name: Age
+    type: date
   group: redis.opstree.com
   names:
     kind: Redis
@@ -11,6 +27,9 @@ spec:
     singular: redis
   scope: Namespaced
   subresources:
+    scale:
+      specReplicasPath: .spec.replicas
+      statusReplicasPath: .status.replicas
     status: {}
   validation:
     openAPIV3Schema:
@@ -28,8 +47,97 @@ spec:
         metadata:
           type: object
         spec:
+          properties:
+            affinity:
+              description: Pod affinity
+              type: object
+            annotations:
+              additionalProperties:
+                type: string
+              description: Pod annotations
+              type: object
+            config:
+              additionalProperties:
+                type: string
+              description: Config allows to pass custom Redis configuration parameters
+              type: object
+            dataVolumeClaimTemplate:
+              description: DataVolumeClaimTemplate for StatefulSet
+              type: object
+            exporter:
+              description: Exporter container specification
+              properties:
+                image:
+                  description: Image is a standard path for a Container image
+                  type: string
+                resources:
+                  description: Resources describes the compute resource requirements
+                  type: object
+                securityContext:
+                  description: SecurityContext holds security configuration that will
+                    be applied to a container
+                  type: object
+              required:
+              - image
+              type: object
+            password:
+              properties:
+                secretKeyRef:
+                  description: SecretKeyRef is a reference to the Secret in the same
+                    namespace containing the password.
+                  type: object
+              required:
+              - secretKeyRef
+              type: object
+            priorityClassName:
+              description: Pod priorityClassName
+              type: string
+            redis:
+              description: Redis container specification
+              properties:
+                image:
+                  description: Image is a standard path for a Container image
+                  type: string
+                resources:
+                  description: Resources describes the compute resource requirements
+                  type: object
+                securityContext:
+                  description: SecurityContext holds security configuration that will
+                    be applied to a container
+                  type: object
+              required:
+              - image
+              type: object
+            replicas:
+              description: Replicas is a number of replicas in a Redis failover cluster
+              format: int32
+              minimum: 3
+              type: integer
+            securityContext:
+              description: Pod securityContext
+              type: object
+            tolerations:
+              description: Pod tolerations
+              items:
+                type: object
+              type: array
+          required:
+          - replicas
+          - redis
           type: object
         status:
+          properties:
+            master:
+              description: Master is the current master's Pod name
+              type: string
+            replicas:
+              description: Replicas is the number of active Redis instances in the
+                replication
+              format: int64
+              type: integer
+          required:
+          - replicas
+          - master
           type: object
   version: v1alpha1
   versions:
