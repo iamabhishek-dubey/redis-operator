@@ -1,1 +1,3 @@
+title: Redis Operator
+description: A golang based operator for deploying Redis on Kubernetes
 theme: jekyll-theme-cayman
