@@ -1,0 +1,18 @@
+sudo: required
+
+language: go
+
+go:
+- 1.9
+
+services:
+- docker
+
+jobs:
+  include:
+    - stage: build
+      before_install:
+      - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+      script:
+      - dep ensure
+      - CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o bin/redis-operator -ldflags "-X main.commit=${COMMIT} -X main.version=${VERSION}" ./cmd/manager
