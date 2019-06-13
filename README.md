@@ -12,8 +12,11 @@ This is Redis Operator which will create/manage Redis on the top of the Kubernet
 
 ## Requirements
 
-- **Golang** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---> If you want to do development
-- **Kubernetes 1.9+** ---> This operator supports Kubernetes 1.9+ versions
+##### Golang 
+- If you want to do development
+
+##### Kubernetes 1.9+
+-  This operator supports Kubernetes 1.9+ versions
 
 ## Overview
 
@@ -97,14 +100,20 @@ example   redis-example-0   4          4         24d
 
 Redis Operator creates the following resources owned by the corresponding **Redis**.
 
-- **Kubernetes API** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---> redis.opstree.com
-- **Secret** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---> In case password setup is enable
-- **ConfigMap** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---> For Redis Configuration Management
-- **PodDisruptionBudget** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---> For managing the Disruptions
-- **StatefulSet** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---> StatefulSets for redis cluster deployment
-- **Services** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---> For communication with redis in kubernetes cluster
-    - **redis-example** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---> covers all pods
-    - **redis-example-master** &nbsp; ---> service for access to the master pod
+##### Kubernetes API 
+- redis.opstree.com
+##### Secret 
+- In case password setup is enable
+##### ConfigMap 
+- For Redis Configuration Management
+##### PodDisruptionBudget 
+- For managing the Disruptions
+##### StatefulSet 
+- StatefulSets for redis cluster deployment
+##### Services 
+- For communication with redis in kubernetes cluster
+    - **redis-example** ---> covers all pods
+    - **redis-example-master** ---> service for access to the master pod
 
 ## To Do
 - [X] Implement CI pipeline for this code.
