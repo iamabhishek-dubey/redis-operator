@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/iamabhishek-dubey/redis-operator.svg?style=svg)](https://circleci.com/gh/iamabhishek-dubey/redis-operator)
+[![CircleCI](https://img.shields.io/badge/build-passing-green.svg)](https://circleci.com/gh/iamabhishek-dubey/redis-operator)
 [![GitHub license](https://img.shields.io/github/license/iamabhishek-dubey/redis-operator.svg)](https://github.com/iamabhishek-dubey/redis-operator/blob/master/LICENSE)
 
 # Redis Operator - An easy way of deploying Redis on Kubernetes
