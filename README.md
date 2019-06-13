@@ -100,17 +100,22 @@ example   redis-example-0   4          4         24d
 
 Redis Operator creates the following resources owned by the corresponding **Redis**.
 
-##### Kubernetes API 
+##### Kubernetes API
 - redis.opstree.com
-##### Secret 
+
+##### Secret
 - In case password setup is enable
-##### ConfigMap 
+
+##### ConfigMap
 - For Redis Configuration Management
-##### PodDisruptionBudget 
+
+##### PodDisruptionBudget
 - For managing the Disruptions
-##### StatefulSet 
+
+##### StatefulSet
 - StatefulSets for redis cluster deployment
-##### Services 
+
+##### Services
 - For communication with redis in kubernetes cluster
     - redis-example ---> covers all pods
     - redis-example-master ---> service for access to master pod
