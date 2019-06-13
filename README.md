@@ -2,6 +2,7 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/iamabhishek-dubey/redis-operator)](https://goreportcard.com/report/github.com/iamabhishek-dubey/redis-operator)
 [![GitHub license](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/iamabhishek-dubey/redis-operator/blob/master/LICENSE)
 [![GitHub release](http://img.shields.io/github/release/iamabhishek-dubey/redis-operator.svg?style=flat-square)](https://github.com/iamabhishek-dubey/redis-operator/releases/latest)
+[![Docker Repository on Quay.io](https://quay.io/repository/abhishek_dubey/redis-operator/status "Docker Repository on Quay.io")](https://quay.io/repository/abhishek_dubey/redis-operator)
 
 # Redis Operator - An easy way of deploying Redis on Kubernetes
 
