@@ -113,7 +113,7 @@ Redis Operator creates the following resources owned by the corresponding **Redi
 ##### Services 
 - For communication with redis in kubernetes cluster
     - **redis-example** ---> covers all pods
-    - **redis-example-master** ---> service for access to the master pod
+    - **redis-example-master** ---> service for access to master pod
 
 ## To Do
 - [X] Implement CI pipeline for this code.
